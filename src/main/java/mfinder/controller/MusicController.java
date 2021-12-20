@@ -19,7 +19,7 @@ public class MusicController {
     @Autowired
     MusicService musicService;
 
-    @GetMapping(value = "/findMusic", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/findMusic/{title}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<Music>> getAllMusic(
             @ApiParam(value = "Id for Song", required = true) @PathVariable("title") String title) {
         List<Music> music = this.musicService.findMusicByTitle(title);
